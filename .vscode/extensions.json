@@ -1,0 +1,16 @@
+{
+    "recommendations": [
+        // Jupyter Notebooks
+        "ms-toolsai.jupyter",
+        // Markdown.
+        "bierner.github-markdown-preview", // Task blocks and others.
+        "davidanson.vscode-markdownlint", // Linter.
+        // Python.
+        "charliermarsh.ruff", // Linter-Formatter.
+        "lextudio.restructuredtext", // Sphinx source.
+        "ms-python.debugpy", // Debugger.
+        "ms-python.vscode-python-envs", // Virtual Environments
+        // TOML.
+        "tamasfe.even-better-toml", // Linter-Formatter.
+    ]
+}

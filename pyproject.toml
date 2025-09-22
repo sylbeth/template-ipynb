@@ -1,0 +1,52 @@
+[project]
+name = "template-ipynb"
+version = "0.1.0"
+description = "UV Jupyter-Python template."
+readme = "README.md"
+authors = [
+    { name = "Sílvia Elisabeth Romero García", email = "silviae.romgar@gmail.com" }
+]
+requires-python = ">=3.13"
+dependencies = []
+
+[dependency-groups]
+# Development dependencies.
+dev = [
+    { include-group = "docs" },
+    { include-group = "kernel" },
+    { include-group = "lint-format" },
+    { include-group = "test" },
+]
+# Documentation generation dependencies.
+docs = []
+# Jupyter Kernel dependencies.
+kernel = ["ipykernel>=6.30.1"]
+# Linter and formatter dependencies.
+lint-format = ["ruff>=0.13.0"]
+# Testing dependencies.
+test = ["pytest>=8.4.1", "pytest-asyncio>=1.1.0"]
+
+# Runner of the Python modules.
+[project.scripts]
+template-ipynb = "template_ipynb:main"
+
+
+[build-system]
+requires = ["uv_build>=0.8.4,<0.9.0"]
+build-backend = "uv_build"
+
+
+# Ruff configuration extended from workspace root ruff configuration.
+[tool.ruff]
+extend = "./ruff.toml"
+
+
+# UV configuration.
+[tool.uv]
+compile-bytecode = true # Custom: Compile to bytecode for efficiency.
+default-groups = ["dev"] # Custom: The default group active is dev by default.
+fork-strategy = "requires-python" # Default: Use the latest available packages.
+managed = true # Default: All projects are managed by UV.
+package = true # Defult: All projects are packages.
+python-preference = "only-managed" # Custom: Only managed Python installations should be used.
+required-version = ">=0.8.4" # Custom: Requires at least 0.8.4 UV.

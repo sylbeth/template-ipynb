@@ -1,0 +1,51 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        // Python development build.
+        {
+            "label": "BUILD:DEV",
+            "command": "uv",
+            "args": [
+                "sync",
+                "--config-setting",
+                "build-args=--profile=dev",
+                "-v",
+            ],
+            "presentation": {
+                "showReuseMessage": false,
+                "close": true,
+            },
+        },
+        // Python clean production build.
+        {
+            "label": "BUILD:CLEAN-PROD",
+            "command": "uv",
+            "args": [
+                "sync",
+                "--force-reinstall",
+                "--no-group",
+                "dev",
+                "-v",
+            ],
+            "presentation": {
+                "showReuseMessage": false,
+                "close": true,
+            },
+        },
+        // Python dirty production build.
+        {
+            "label": "BUILD:DIRTY-PROD",
+            "command": "uv",
+            "args": [
+                "sync",
+                "--no-group",
+                "dev",
+                "-v",
+            ],
+            "presentation": {
+                "showReuseMessage": false,
+                "close": true,
+            },
+        },
+    ],
+}

@@ -1,0 +1,22 @@
+{
+    "configurations": [
+        // Python debugging.
+        {
+            "args": [
+                "dev",
+            ],
+            "cwd": "${workspaceFolder}/src",
+            "env": {
+                "ENVIRONMENT": "dev"
+            },
+            "justMyCode": false,
+            "module": "template_ipynb.main",
+            "name": "PYTHON:DEV",
+            "preLaunchTask": "BUILD:DEV",
+            "request": "launch",
+            "stopOnEntry": true,
+            "type": "debugpy"
+        },
+    ],
+    "version": "0.2.0"
+}
