@@ -1,15 +1,18 @@
 {
     "recommendations": [
-        // Jupyter Notebooks
+        // Jupyter Notebooks.
         "ms-toolsai.jupyter",
+        // Icons.
+        "vscode-icons-team.vscode-icons",
         // Markdown.
         "bierner.github-markdown-preview", // Task blocks and others.
         "davidanson.vscode-markdownlint", // Linter.
+        "yzhang.markdown-all-in-one", // Overall QOL.
         // Python.
         "charliermarsh.ruff", // Linter-Formatter.
         "lextudio.restructuredtext", // Sphinx source.
         "ms-python.debugpy", // Debugger.
-        "ms-python.vscode-python-envs", // Virtual Environments
+        "ms-python.vscode-python-envs", // Virtual Environments.
         // TOML.
         "tamasfe.even-better-toml", // Linter-Formatter.
     ]
