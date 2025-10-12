@@ -58,85 +58,6 @@ path = "taplo://taplo.toml"
 
 
 
-# Cargo file configuration.
-[[rule]]
-include = ["**/Cargo.toml"]
-
-[rule.formatting]
-reorder_arrays = true
-# We want to reorder the array elements
-# of packages and dependencies.
-
-[rule.schema]
-path = "https://www.schemastore.org/cargo.json"
-
-
-# Reorder keys.
-[[rule]]
-include = ["**/Cargo.toml"]
-keys = [
-    "dependencies",
-    "dev-dependencies",
-    "features",
-    "workspace.dependencies",
-    "workspace.lints.clippy",
-    "workspace.lints.rust",
-]
-
-[rule.formatting]
-reorder_keys = true
-# We want to reorder the keys
-# of some sortable tables.
-
-
-
-# Cargo Config file configuration.
-# [[rule]]
-# include = ["**/.cargo/config.toml"]
-
-# [rule.schema]
-# path = "https://www.schemastore.org/cargo-config.json"
-
-
-
-# Clippy file configuration
-[[rule]]
-include = ["**/clippy.toml"]
-
-[rule.formatting]
-reorder_keys = true
-# We want to reorder the keys
-# so they stay in alphabetical order.
-
-# [rule.schema]
-# path = "https://www.schemastore.org/clippy.json"
-
-
-
-# Rustfmt file configuration
-[[rule]]
-include = ["**/rustfmt.toml"]
-
-[rule.formatting]
-reorder_arrays = true
-reorder_keys = true
-# We want to reorder the keys and array elements
-# so they stay in alphabetical order.
-
-[rule.schema]
-path = "https://www.schemastore.org/rustfmt.json"
-
-
-
-# Rust Toolchain file configuration
-[[rule]]
-include = ["**/rust-toolchain.toml"]
-
-[rule.schema]
-path = "https://www.schemastore.org/rust-toolchain.json"
-
-
-
 # PyProject file configuration.
 [[rule]]
 include = ["**/pyproject.toml"]
@@ -185,7 +106,6 @@ path = "https://www.schemastore.org/ruff.json"
 [[rule]]
 include = ["**/ruff.toml"]
 keys = [
-    "lint",
     "lint.isort.sections",
     "lint.pep8-naming",
     "lint.per-file-ignores",
@@ -198,31 +118,3 @@ keys = [
 reorder_arrays = true
 # We want to reorder the sortable array elements
 # so they stay in alphabetical order.
-
-
-
-# Backoffs file configuration.
-[[rule]]
-include = ["**/backoffs.toml"]
-
-[rule.formatting]
-reorder_keys = true
-# We want to reorder the keys
-# of the backoffs alphabetically.
-
-[rule.schema]
-path = "./schemas/backoffs.json"
-
-
-
-# Config file configuration.
-[[rule]]
-include = ["**/config.toml"]
-
-[rule.formatting]
-reorder_keys = true
-# We want to reorder the keys
-# of the backoffs alphabetically.
-
-[rule.schema]
-path = "./schemas/config.json"

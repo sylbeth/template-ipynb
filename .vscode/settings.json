@@ -186,9 +186,6 @@
     "notebook.formatOnCellExecution": true,
     "notebook.formatOnSave.enabled": true,
     //
-    // 4.3. Newline.
-    "notebook.insertFinalNewline": true,
-    //
     //
     //
     // Extension configurations (2).
@@ -208,22 +205,17 @@
     //
     // 5. Python configurations.
     //
-    // 5.1. Language server.
-    "python.languageServer": "None", // We use Ruff.
-    //
-    // 5.2. Environment auto activation.
+    // 5.1. Environment auto activation.
     "python.terminal.activateEnvironment": false, // Environment autoactivation is useless since we use UV.
     //
-    //
-    // 5.3. Testing.
+    // 5.2. Testing.
     "python.testing.pytestArgs": [
         "tests"
     ],
     "python.testing.pytestEnabled": true,
     "python.testing.unittestEnabled": false, // No need since we use pytest.
     //
-    //
-    // 5.4. Python Environments extension.
+    // 5.3. Python Environments extension.
     "python.useEnvironmentsExtension": true,
     //
     //
@@ -245,7 +237,7 @@
     "ruff.enable": true,
     //
     // 6.4. Formatter backend.
-    "ruff.format.backend": "uv",
+    "ruff.format.backend": "internal",
     //
     // 6.5. Formatting preview.
     "ruff.format.preview": false,

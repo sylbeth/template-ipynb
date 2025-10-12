@@ -4,7 +4,7 @@ indent-width = 4
 # Default: Explicitly enforce 4 spaces identation.
 line-length = 88
 # Default: The default for Ruff is sensible enough.
-required-version = ">=0.13.0"
+required-version = ">=0.12.5"
 # Custom: Same version as the dependency.
 respect-gitignore = true
 # Custom: No need to respect gitignore.
@@ -31,6 +31,8 @@ quote-style = "preserve"
 ignore = [
     "CPY001",
     # No need to add a copyright at the start of every file.
+    "COM812",
+    # Redundant rule becaues of the formatter.
     "D203",
     # Contradicts D211.
     "D212",
@@ -39,10 +41,12 @@ ignore = [
     # Extended by D415.
     "D401",
     # Imperative mood is not good for functions.
-    "T201",
-    # This is a CLI application.
+    "DOC502",
+    # All known exceptions should be documented.
     "Q000",
     # The quoting style requires using both double and single quotes for inline strings.
+    "T201",
+    # This is a Notebook focused project.
 ]
 preview = true
 # Custom: Linting preview is allowed.
