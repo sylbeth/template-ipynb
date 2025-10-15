@@ -10,8 +10,8 @@
                 "ENVIRONMENT": "dev"
             },
             "justMyCode": false,
-            "module": "template_ipynb.main",
-            "name": "PYTHON:DEV",
+            "module": "notebook1.main",
+            "name": "NOTEBOOK1:MAIN",
             "preLaunchTask": "BUILD:DEV",
             "request": "launch",
             "stopOnEntry": true,

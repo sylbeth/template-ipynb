@@ -1,4 +1,4 @@
-"""Module used by VSCode to debug the project."""
+"""The package's script for the example notebook."""
 
 from . import main
 

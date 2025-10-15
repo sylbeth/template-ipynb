@@ -30,7 +30,7 @@ test = ["pytest-asyncio>=1.1.0", "pytest>=8.4.1"]
 
 # Runner of the Python modules.
 [project.scripts]
-template-ipynb = "template_ipynb:main"
+notebook1 = "notebook1:main"
 
 
 [build-system]
@@ -59,3 +59,8 @@ python-preference = "only-managed"
 # Custom: Only managed Python installations should be used.
 required-version = ">=0.9.2"
 # Custom: Requires at least 0.9.2 UV.
+
+
+# UV build backend configuration.
+[tool.uv.build-backend]
+namespace = true

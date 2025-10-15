@@ -58,10 +58,10 @@
     // 2.1. File nesting.
     "explorer.fileNesting.enabled": true,
     "explorer.fileNesting.patterns": {
-        "__init__.py": "*.py", // All Python files from a module are part of it.
+        "__init__.py": "*.py, py.typed", // All Python files from a module are part of it, and also the `py.typed` file.
         ".gitignore": ".gitattributes", // The gitattributes file is part of the git configuration, which should always have a gitignore file.
-        "pyproject.toml": ".python-version, ruff.toml, uv.lock", // All python project related files should go under it, including the dependencies configuration.
-        "README.md": ".markdownlint*, *.md" // The Markdown linter configuration file and the rest of the Markdown files should go under README.md, which should always exist.
+        "pyproject.toml": ".python-version, *ruff.toml, manage.py, setup.py, uv.lock, uv.toml", // All python project related files should go under it, including the dependencies configuration.
+        "README.md": ".markdownlint*, *.md, LICENSE*" // The Markdown linter configuration file and the rest of the Markdown and LICENSE files should go under README.md, which should always exist.
     },
     //
     //
@@ -81,18 +81,18 @@
         "**/.env": true, // Environment variables, should only be set once at clone time, or changed sparingly.
         "**/.gitattributes": true, // Gitattributes, shouldn't change often.
         "**/.gitignore": true, // Gitignore, shouldn't change often.
-        "**/.markdownlint.jsonc": true, // Markdownlint configurations, shouldn't change often.
+        "**/.markdownlint*": true, // Markdownlint configurations, shouldn't change often.
         "**/.pytest_cache": true, // The pytest's cache folder, cache folders should always be excluded.
         "**/.python-version": true, // The Python interpreter's version, shouldn't change often.
         "**/.ruff_cache": true, // The cache folder for ruff, cache folders should always be excluded.
         "**/.venv": true, // The virtual environment, shouldn't be manually modified.
         "**/.vscode": true, // VSCode folder, shouldn't change often.
+        "**/*ruff.toml": true, // Python formatting configurations, shouldn't change often.
+        "**/*taplo.toml": true, // TOML formatting configurations, shouldn't change often.
         "**/desktop.ini": true, // Desktop configurations for Windows, should always be excluded.
         "**/dist": true, // Python packages compilation folder, cache folders should always be excluded.
+        "**/LICENSE*": true, // All license files shouldn't need to be modified after being added.
         "**/py.typed": true, // Python type verification support marker, should only be set only once.
-        "**/ruff.toml": true, // Python formatting configurations, shouldn't change often.
-        "**/src/*/main.py": true, // File used only to allow for VSCode debugging, shouldn't need further modifications.
-        "**/taplo.toml": true, // TOML formatting configurations, shouldn't change often.
         "**/uv.lock": true // Python dependencies' lock, shouldn't be manually modified.
         // Temporary exclusions.
         // "private": true, // Private folder, should only be visible when editing user specific files.
@@ -104,13 +104,13 @@
     //
     // 3.5. Readonly inclusions.
     "files.readonlyInclude": {
-        "**/__pycache__": true, // Python's compilation cache files, cache folders should always be read only.
-        "**/.pytest_cache": true, // The pytest's cache folder, cache folders should always be read only.
-        "**/.ruff_cache": true, // The cache folder for ruff, cache folders should always be read only.
-        "**/.venv": true, // The virtual environment, shouldn't be manually modified.
-        "**/dist": true, // Python packages compilation folder, cache folders should always be read only.
+        "**/__pycache__/**/*": true, // Python's compilation cache files, cache folders should always be read only.
+        "**/.pytest_cache/**/*": true, // The pytest's cache folder, cache folders should always be read only.
+        "**/.ruff_cache/**/*": true, // The cache folder for ruff, cache folders should always be read only.
+        "**/.venv/**/*": true, // The virtual environment, shouldn't be manually modified.
+        "**/dist/**/*": true, // Python packages compilation folder, compilation folders should always be read only.
+        "**/LICENSE*": true, // All license files shouldn't need to be modified after being added.
         "**/py.typed": true, // Python type verification support marker, should only be set only once.
-        "**/src/*/main.py": true, // File used only to allow for VSCode debugging, shouldn't need further modifications.
         "**/uv.lock": true // Python dependencies' lock, shouldn't be manually modified.
     },
     //
@@ -289,9 +289,10 @@
             "format": "svg",
             "icon": "python"
         },
-        // `ruff.toml` files should be seen as Python files too, but the pytyped kind makes it seem.
+        // `?ruff.toml` files should be seen as Python files too, but the pytyped kind makes it seem.
         {
             "extensions": [
+                ".ruff.toml",
                 "ruff.toml"
             ],
             "filename": true,
@@ -322,7 +323,8 @@
     // 5.1. Custom labels.
     "workbench.editor.customLabels.patterns": {
         "**/__init__.py": "${dirname}/.${extname}", // There is only one `__init__.py` file in a Python package, and it defines its public API.
-        "**/main.py": "${dirname} - ${filename}" // There is only one `main.py` file in the Python packages as we have defined them, and it defines the main executable function.
+        "**/main.py": "${dirname} - ${filename}", // There is only one `main.py` file in the Python packages as we have defined them, and it defines the main executable function.
+        "**/py.typed": "${dirname}/.${extname}" // There is only one `py.typed` file in a package.
     },
     //
     // 5.2. Icon theme.

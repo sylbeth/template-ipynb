@@ -7,8 +7,8 @@
             "command": "uv",
             "args": [
                 "sync",
-                "--config-setting",
-                "build-args=--profile=dev",
+                "--group",
+                "dev",
                 "-v",
             ],
             "presentation": {
